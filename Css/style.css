@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .titulo{
+    text-align: center;
+}
+
+.tarjetas{
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5rem;
+}
+
+.card{
+    border: 1px solid black;
+}
+
+.card{
+    background-color: rgba(94, 24, 24, 0.415);
+}; */
+
+.body-productos {
+    background-image: url(../img/productos.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .body-productos .main-productos {
+    margin-top: 120px;
+  }
+  .body-productos .main-productos .container .row {
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+  .body-productos .main-productos .container .row .card {
+    width: 18rem;
+    background-color: rgba(255, 255, 255, 0.573);
+  }
+  .body-productos .main-productos .container .row .card:hover {
+    animation: pulsate-fwd 0.5s ease-in-out both;
+  }
+  .body-productos .main-productos .container .row .card .card-img-top {
+    border-radius: 5px;
+  }
+  .body-productos .main-productos .container .row .card .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgb(118, 52, 26);
+    color: rgb(250, 163, 47);
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+  }
+  
