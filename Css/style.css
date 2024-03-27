@@ -1,29 +1,24 @@
+/* RESET */
+:root{
+  --clr-main: brown;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* .titulo{
-    text-align: center;
-}
 
-.tarjetas{
-    display: grid;
-    width: 300px;
-    height: 300px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 5rem;
-}
 
-.card{
-    border: 1px solid black;
-}
-
-.card{
-    background-color: rgba(94, 24, 24, 0.415);
-}; */
 
 .body-productos {
     background-image: url(../img/productos.jpg);
