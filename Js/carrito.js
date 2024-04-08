@@ -3,7 +3,7 @@ const unidadesElement = document.querySelector("#unidades");
 const precioElement = document.querySelector("#precio");
 const carritoVacioElement = document.querySelector("#carrito-vacio");
 const totalesElement = document.querySelector("#totales");
-// const reiniciarCarritoElement = document.querySelector("#reiniciar");
+const reiniciarCarritoElement = document.getElementById("#reiniciar");
 
 
 
@@ -69,3 +69,11 @@ function carritoVacio() {
 }
 
 carritoVacio();
+
+//  NO LO PUDE AHCER ANDAR
+reiniciarCarritoElement.addEventListener("click",reiniciarCarrito);
+function reiniciarCarrito(){
+    localStorage.removeItem("listaProducto");
+    actualizarTotales();
+    crearCardInicio();
+}
