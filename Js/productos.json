@@ -14,7 +14,7 @@
     { 
         "id": 3, 
         "nombre": "Masas Finas (Kilo)",  
-        "img": "./Img/masas-finas.jpg,",
+        "img": "./Img/masas-finas.jpg",
         "precio": 200 
     },
     { 

@@ -1,9 +1,16 @@
 const contenedorCard = document.querySelector("#contenedor-productos");
-fetch("./js/productos.json")
-.then (response => response.json())
-.then (data => {
+async function ObtenerProductos(){
+    fetch("./js/productos.json")
+    .then (response => response.json())
+    .then (data => {
     crearCardInicio(data);
-})
+    })
+    console.log("String")
+    
+}
+
+ObtenerProductos()
+
 
 
 function crearCardInicio (productos){
@@ -23,3 +30,4 @@ function crearCardInicio (productos){
 }
 
 crearCardInicio(listaProductos);
+
