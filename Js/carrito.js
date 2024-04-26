@@ -3,7 +3,8 @@ const unidadesElement = document.querySelector("#unidades");
 const precioElement = document.querySelector("#precio");
 const carritoVacioElement = document.querySelector("#carrito-vacio");
 const totalesElement = document.querySelector("#totales");
-const reiniciarCarritoElement = document.getElementById("#reiniciar");
+const reiniciarCarritoElement = document.querySelector("#btn-reiniciar");
+const comprarElement = document.querySelector("#btn-comprar");
 
 
 
@@ -38,6 +39,22 @@ function crearCardInicio() {
                     restarAlCarrito(producto);
                     crearCardInicio();
                     actualizarTotales();
+                        // ...  
+
+                    Toastify({
+                        text: "Has quitado un producto del carrito",
+                        duration: 1000,
+                        gravity: "top", 
+                        position: "center", 
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                          background: "var(--main-color)",
+                          color: "var(--sec-color)"
+                        },
+                        onClick: function(){} // Callback after click
+                      }).showToast();
+                          // ...  
+
                 });
         });
     }
@@ -70,10 +87,41 @@ function carritoVacio() {
 
 carritoVacio();
 
-//  NO LO PUDE AHCER ANDAR
 reiniciarCarritoElement.addEventListener("click",reiniciarCarrito);
 function reiniciarCarrito(){
-    localStorage.removeItem("listaProducto");
+    localStorage.removeItem("listaProductos");
     actualizarTotales();
     crearCardInicio();
+    // ...  
+    Swal.fire({
+    title: "¿Quieres vaciar el carrito?",
+    text: "Deberas volver a cargar los porductos en la pagina principal.",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonText: "Cancelar",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, vaciar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "¡Vaciado!",
+        text: "Su carrito está vacio.",
+        icon: "success"
+      });
+    }
+  });
+    // ...  
 }
+
+comprarElement.addEventListener("click", comprarCarrito);
+function comprarCarrito() {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Compra realizada",
+        showConfirmButton: true,
+    });
+}
+
+

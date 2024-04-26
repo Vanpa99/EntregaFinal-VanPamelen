@@ -1,4 +1,21 @@
 function agregarAlCarrito(producto) {
+        // ...  
+    Toastify({
+        text: "Has agregado un producto al carrito",
+        duration: 1000,
+        destination: "./carrito.html",
+        gravity: "top", 
+        position: "center", 
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "var(--main-color)",
+          color: "var(--sec-color)"
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+          // ...  
+
+
     const memoria = JSON.parse(localStorage.getItem("listaProductos"));
     let cuenta = 0;
     if (!memoria){
@@ -19,6 +36,7 @@ function agregarAlCarrito(producto) {
     } 
     actualizarNumeroCarrito();
     return cuenta;
+    
 }
 
 
@@ -53,5 +71,10 @@ function actualizarNumeroCarrito(){
 
     }
 }
+
+function reiniciarCarrito(){
+    localStorage.removeItem("bicicletas");
+    actualizarNumeroCarrito();
+  }
 
 actualizarNumeroCarrito();

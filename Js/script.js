@@ -1,4 +1,10 @@
 const contenedorCard = document.querySelector("#contenedor-productos");
+fetch("./js/productos.json")
+.then (response => response.json())
+.then (data => {
+    crearCardInicio(data);
+})
+
 
 function crearCardInicio (productos){
     productos.forEach(producto => {
@@ -11,7 +17,8 @@ function crearCardInicio (productos){
             <button class="producto-agregar">Agregar</button>
         `
         contenedorCard.appendChild(nuevoProducto);
-        nuevoProducto.getElementsByTagName("button")[0].addEventListener("click", () => agregarAlCarrito (producto))
+        nuevoProducto.getElementsByTagName("button")[0]
+        .addEventListener("click", () => agregarAlCarrito (producto))
     });
 }
 
