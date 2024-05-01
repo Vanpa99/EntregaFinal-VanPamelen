@@ -73,7 +73,7 @@ function actualizarNumeroCarrito(){
 }
 
 function reiniciarCarrito(){
-    localStorage.removeItem("bicicletas");
+    localStorage.removeItem("listaProductos");
     actualizarNumeroCarrito();
   }
 

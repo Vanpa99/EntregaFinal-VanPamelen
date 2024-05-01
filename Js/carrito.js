@@ -39,21 +39,21 @@ function crearCardInicio() {
                     restarAlCarrito(producto);
                     crearCardInicio();
                     actualizarTotales();
-                        // ...  
+                    // ...  
 
                     Toastify({
                         text: "Has quitado un producto del carrito",
                         duration: 1000,
-                        gravity: "top", 
-                        position: "center", 
+                        gravity: "top",
+                        position: "center",
                         stopOnFocus: true, // Prevents dismissing of toast on hover
                         style: {
-                          background: "var(--main-color)",
-                          color: "var(--sec-color)"
+                            background: "var(--main-color)",
+                            color: "var(--sec-color)"
                         },
-                        onClick: function(){} // Callback after click
-                      }).showToast();
-                          // ...  
+                        onClick: function () { } // Callback after click
+                    }).showToast();
+                    // ...  
 
                 });
         });
@@ -87,30 +87,31 @@ function carritoVacio() {
 
 carritoVacio();
 
-reiniciarCarritoElement.addEventListener("click",reiniciarCarrito);
-function reiniciarCarrito(){
-    localStorage.removeItem("listaProductos");
-    actualizarTotales();
-    crearCardInicio();
+reiniciarCarritoElement.addEventListener("click", reiniciarCarrito);
+function reiniciarCarrito() {
     // ...  
     Swal.fire({
-    title: "¿Quieres vaciar el carrito?",
-    text: "Deberas volver a cargar los porductos en la pagina principal.",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonText: "Cancelar",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Si, vaciar"
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire({
-        title: "¡Vaciado!",
-        text: "Su carrito está vacio.",
-        icon: "success"
-      });
-    }
-  });
+        title: "¿Quieres vaciar el carrito?",
+        text: "Deberas volver a cargar los porductos en la pagina principal.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonText: "Cancelar",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, vaciar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem("listaProductos");
+            actualizarTotales();
+            crearCardInicio();
+            actualizarNumeroCarrito();
+            Swal.fire({
+                title: "¡Vaciado!",
+                text: "Su carrito está vacio.",
+                icon: "success"
+            });
+        }
+    });
     // ...  
 }
 
@@ -121,7 +122,12 @@ function comprarCarrito() {
         icon: "success",
         title: "Compra realizada",
         showConfirmButton: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem("listaProductos");
+            actualizarTotales();
+            crearCardInicio();
+            actualizarNumeroCarrito();
+        }
     });
 }
-
-
